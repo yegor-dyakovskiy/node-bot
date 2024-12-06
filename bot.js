@@ -3,12 +3,8 @@ import { Telegraf } from 'telegraf';
 import { Markup } from 'telegraf';
 import { botID } from './config.js';
 import { startHandler } from './handlers/startHandler.js';
-import { postTextHandler } from './handlers/textHandler.js';
-import {
-    postDocumentHandler,
-    storyDocumentHandlerUp,
-    storyDocumentHandlerDown,
-} from './handlers/documentHandler.js';
+import { textHandler } from './handlers/textHandler.js';
+import { documentHandler } from './handlers/documentHandler.js';
 
 const bot = new Telegraf(botID);
 
@@ -98,15 +94,15 @@ bot.on('text', (ctx) => {
     // Проверка на текущую ветку
     if (userState.currentBranch === 'post') {
         // Логика для ветки "Пост"
-        postTextHandler(ctx, userState);
+        textHandler(ctx, userState);
     } else if (userState.currentBranch === 'story') {
         // Логика для ветки "Сторис"
         if (userState.storyPosition === 'up') {
             // Логика для сториса с выбором "Сверху"
-            postTextHandler(ctx, userState);
+            textHandler(ctx, userState);
         } else if (userState.storyPosition === 'down') {
             // Логика для сториса с выбором "Снизу"
-            postTextHandler(ctx, userState);
+            textHandler(ctx, userState);
         } else {
             // Если позиция не выбрана, напомнить о необходимости выбора
             ctx.reply('Выберите позицию для сториса (сверху или снизу).');
@@ -121,19 +117,19 @@ bot.on('text', (ctx) => {
 // Обработчик документа
 bot.on('document', (ctx) => {
     const userState = userStates[ctx.from.id];
+    let contentType = '';
 
-    // Проверка на текущую ветку
+    // Проверка на текущую ветку и тип контента
     if (userState.currentBranch === 'post') {
-        // Логика для обработки документов в ветке "Пост"
-        postDocumentHandler(ctx, userState);
+        contentType = 'post';
+        documentHandler(ctx, userState, contentType); // Передаем тип контента
     } else if (userState.currentBranch === 'story') {
-        // Логика для обработки документов в ветке "Сторис"
         if (userState.storyPosition === 'up') {
-            // Логика для сториса с выбором "Сверху"
-            storyDocumentHandlerUp(ctx, userState);
+            contentType = 'story_up';
+            documentHandler(ctx, userState, contentType); // Передаем тип контента
         } else if (userState.storyPosition === 'down') {
-            // Логика для сториса с выбором "Снизу"
-            storyDocumentHandlerDown(ctx, userState);
+            contentType = 'story_down';
+            documentHandler(ctx, userState, contentType); // Передаем тип контента
         } else {
             // Если позиция не выбрана, напомнить о необходимости выбора
             ctx.reply('Выберите позицию для сториса (сверху или снизу).');
@@ -141,7 +137,7 @@ bot.on('document', (ctx) => {
     } else {
         ctx.reply('Выберите ветку перед продолжением!');
     }
-
+    console.log(contentType + ' в BOT');
     console.log(userStates);
 });
 
