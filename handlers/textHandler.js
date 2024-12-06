@@ -1,4 +1,4 @@
-export function textHandler(ctx, state) {
+export function postTextHandler(ctx, state) {
     const { interactionStage } = state;
 
     if (interactionStage === 'waitingForDate') {
