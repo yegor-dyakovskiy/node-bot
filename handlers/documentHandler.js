@@ -3,7 +3,6 @@ import { fetchImageFromTelegram } from '../helpers.js';
 import { convertHeicToJpeg, processImage } from '../imageProcessing/processImage.js';
 
 export async function documentHandler(ctx, state, contentType) {
-    console.log(contentType + ' в documentHandler');
     if (state.interactionStage !== 'waitingForFile') {
         ctx.reply('Сначала завершите предыдущий процесс или введите /start для новой обработки.');
         return;

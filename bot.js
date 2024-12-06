@@ -137,7 +137,6 @@ bot.on('document', (ctx) => {
     } else {
         ctx.reply('Выберите ветку перед продолжением!');
     }
-    console.log(contentType + ' в BOT');
     console.log(userStates);
 });
 

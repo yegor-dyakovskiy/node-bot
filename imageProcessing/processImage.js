@@ -19,7 +19,6 @@ export async function convertHeicToJpeg(buffer) {
 
 // Ресайз и обработка изображения
 export async function processImage(buffer, firstText, secondText, contentType) {
-    console.log(firstText, secondText, contentType);
     let aspectRatio;
     let width, height;
 
