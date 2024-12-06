@@ -86,6 +86,6 @@ export async function processImage(buffer, firstText, secondText, contentType) {
             { input: gradientBuffer, blend: 'over' },
             { input: textBuffer, blend: 'over' },
         ])
-        .jpeg({ quality: 90 })
+        .png({ compressionLevel: 6 }) // Используйте PNG, если нужно сохранить все детали
         .toBuffer();
 }

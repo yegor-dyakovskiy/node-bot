@@ -32,7 +32,7 @@ export async function documentHandler(ctx, state, contentType) {
         // Отправка обработанного изображения
         await ctx.replyWithDocument({
             source: processedImage,
-            filename: 'processed_image.jpg',
+            filename: 'gorny-club-image.png',
         });
 
         state.interactionStage = 'start';
