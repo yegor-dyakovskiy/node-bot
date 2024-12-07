@@ -18,8 +18,8 @@ export const createStoryUpTextSvg = (fixedSize, firstText, secondText) => {
   <svg width="${fixedSize}" height="${fixedSize + 300}">
     <style>
       @font-face {
-        font-family: 'Century Gothic';
-        src: url('path_to_century_gothic.ttf') format('truetype');
+        font-family: 'Century Gothic Paneuropean', sans-serif;
+        src: url('https://fonts.cdnfonts.com/css/century-gothic-paneuropean') format('truetype');
       }
     </style>
     <text x="50" y="${
@@ -53,8 +53,8 @@ export const createStoryDownTextSvg = (fixedSize, firstText, secondText) => {
 <svg width="${fixedSize}" height="${fixedSize + 300}">
   <style>
     @font-face {
-      font-family: 'Century Gothic';
-      src: url('path_to_century_gothic.ttf') format('truetype');
+      font-family: 'Century Gothic Paneuropean', sans-serif;
+      src: url('https://fonts.cdnfonts.com/css/century-gothic-paneuropean') format('truetype');
     }
   </style>
   <text x="50" y="${
@@ -89,8 +89,8 @@ export const createTextSvg = (fixedSize, firstText, secondText) => {
     <svg width="${fixedSize}" height="${fixedSize}">
       <style>
         @font-face {
-          font-family: 'Century Gothic';
-          src: url('path_to_century_gothic.ttf') format('truetype');
+          font-family: 'Century Gothic Paneuropean', sans-serif;
+          src: url('https://fonts.cdnfonts.com/css/century-gothic-paneuropean') format('truetype');
         }
       </style>
       <text x="50%" y="${
