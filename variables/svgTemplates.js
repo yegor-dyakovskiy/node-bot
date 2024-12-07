@@ -1,19 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-
-// Получаем путь к шрифту
-const fontPath = path.join(__dirname, 'centurygothic.ttf');
-const fontBase64 = fs.readFileSync(fontPath, 'base64');
-// Встраиваем шрифт в стиль
-const fontFaceStyle = `
-  <style>
-    @font-face {
-      font-family: 'Century Gothic', sans-serif;
-      src: url('data:font/ttf;base64,${fontBase64}') format('truetype');
-    }
-  </style>
-`;
-
 // Шаблон градиента для сториса сверху
 export const createStoryUpGradientSvg = (fixedSize) => {
     return `
@@ -28,18 +12,22 @@ export const createStoryUpGradientSvg = (fixedSize) => {
   </svg>
 `;
 };
-
-// Шаблон текста для сториса сверху
+//// Шаблон текста для сториса сверху
 export const createStoryUpTextSvg = (fixedSize, firstText, secondText) => {
     return `
   <svg width="${fixedSize}" height="${fixedSize + 300}">
-    ${fontFaceStyle}
+    <style>
+      @font-face {
+        font-family: 'Century Gothic';
+        src: url('path_to_century_gothic.ttf') format('truetype');
+      }
+    </style>
     <text x="50" y="${
         fixedSize - 990
-    }" font-family="Montserrat" font-size="70" fill="white" text-anchor="start">${firstText}</text>
+    }" font-family="Century Gothic" font-size="70" fill="white" text-anchor="start">${firstText}</text>
     <text x="50" y="${
         fixedSize - 890
-    }" font-family="Montserrat" font-size="70" fill="white" text-anchor="start">${secondText}</text>
+    }" font-family="Century Gothic" font-size="70" fill="white" text-anchor="start">${secondText}</text>
   </svg>
 `;
 };
@@ -63,7 +51,12 @@ export const createStoryDownGradientSvg = (fixedSize) => {
 export const createStoryDownTextSvg = (fixedSize, firstText, secondText) => {
     return `
 <svg width="${fixedSize}" height="${fixedSize + 300}">
-  ${fontFaceStyle}
+  <style>
+    @font-face {
+      font-family: 'Century Gothic';
+      src: url('path_to_century_gothic.ttf') format('truetype');
+    }
+  </style>
   <text x="50" y="${
       fixedSize + 160
   }" font-family="Century Gothic" font-size="70" fill="white" text-anchor="start">${firstText}</text>
@@ -91,9 +84,15 @@ export const createGradientSvg = (fixedSize) => {
 
 // Шаблон текста для поста
 export const createTextSvg = (fixedSize, firstText, secondText) => {
+    console.log(fixedSize);
     return `
     <svg width="${fixedSize}" height="${fixedSize}">
-      ${fontFaceStyle}
+      <style>
+        @font-face {
+          font-family: 'Century Gothic';
+          src: url('path_to_century_gothic.ttf') format('truetype');
+        }
+      </style>
       <text x="50%" y="${
           fixedSize - 150
       }" font-family="Century Gothic" font-size="75" fill="white" text-anchor="middle">${firstText}</text>
