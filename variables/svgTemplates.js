@@ -1,9 +1,22 @@
 // Шаблон для font-face
+
+import fs from 'fs';
+import path from 'path';
+
+// Получаем текущий путь к директории с использованием import.meta.url
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+// Путь к файлу шрифта
+const fontPath = path.resolve(__dirname, 'centurygothic.ttf');
+
+// Преобразуем шрифт в base64
+const base64Font = fs.readFileSync(fontPath, 'base64');
+
 export const fontFaceStyle = `
   <style>
     @font-face {
       font-family: 'Century Gothic', sans-serif;
-      src: url('/centurygothic.ttf') format('truetype');
+      src: url('data:font/ttf;base64,${base64Font}') format('truetype');
     }
   </style>
 `;
