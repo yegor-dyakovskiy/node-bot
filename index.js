@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000; // Render указывает порт ч�
 const app = express();
 
 // Устанавливаем Webhook
-const RENDER_URL = 'https://node-bot-9sy2.onrender.com'; // Замените на ваш URL
+const RENDER_URL = 'https://node-bot-504j.onrender.com'; // Замените на ваш URL
 bot.telegram.setWebhook(`${RENDER_URL}/webhook`);
 
 // Маршрут для обработки Webhook
