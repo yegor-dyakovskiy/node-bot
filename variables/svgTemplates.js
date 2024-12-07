@@ -1,11 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 
-// Получаем путь к шрифту
+// Получаем путь к директории через import.meta.url
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+// Путь к шрифту
 const fontPath = path.join(__dirname, 'centurygothic.ttf');
+
+// Преобразуем шрифт в base64
 const fontBase64 = fs.readFileSync(fontPath, 'base64');
-console.log(fontBase64);
-// Встраиваем шрифт в стиль
+
 const fontFaceStyle = `
   <style>
     @font-face {
@@ -14,6 +18,8 @@ const fontFaceStyle = `
     }
   </style>
 `;
+
+console.log(fontFaceStyle);
 
 // Шаблон градиента для сториса сверху
 export const createStoryUpGradientSvg = (fixedSize) => {
