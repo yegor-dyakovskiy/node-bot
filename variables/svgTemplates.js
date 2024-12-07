@@ -1,11 +1,19 @@
-export const fontFaceStyle = `
+import path from 'path';
+
+// Получаем путь к директории через import.meta.url
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+// Создаём стиль с подключением шрифта
+const fontFaceStyle = `
   <style>
     @font-face {
       font-family: 'Century Gothic', sans-serif;
-      src: url('localplace) format('truetype');
+      src: url('file://${path.join(__dirname, 'centurygothic.ttf')}') format('truetype');
     }
   </style>
 `;
+
+console.log(fontFaceStyle); // Выведем для проверки
 
 // Шаблон градиента для сториса сверху
 export const createStoryUpGradientSvg = (fixedSize) => {
