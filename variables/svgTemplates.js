@@ -24,10 +24,10 @@ export const createStoryUpTextSvg = (fixedSize, firstText, secondText) => {
     </style>
     <text x="50" y="${
         fixedSize - 990
-    }" font-family="Century Gothic" font-size="70" fill="white" text-anchor="start">${firstText}</text>
+    }" font-family="Century Gothic" font-size="60" fill="white" text-anchor="start">${firstText}</text>
     <text x="50" y="${
         fixedSize - 890
-    }" font-family="Century Gothic" font-size="70" fill="white" text-anchor="start">${secondText}</text>
+    }" font-family="Century Gothic" font-size="60" fill="white" text-anchor="start">${secondText}</text>
   </svg>
 `;
 };
@@ -59,10 +59,10 @@ export const createStoryDownTextSvg = (fixedSize, firstText, secondText) => {
   </style>
   <text x="50" y="${
       fixedSize + 160
-  }" font-family="Century Gothic" font-size="70" fill="white" text-anchor="start">${firstText}</text>
+  }" font-family="Century Gothic" font-size="60" fill="white" text-anchor="start">${firstText}</text>
   <text x="50" y="${
       fixedSize + 260
-  }" font-family="Century Gothic" font-size="70" fill="white" text-anchor="start">${secondText}</text>
+  }" font-family="Century Gothic" font-size="60" fill="white" text-anchor="start">${secondText}</text>
 </svg>
 `;
 };
@@ -95,10 +95,10 @@ export const createTextSvg = (fixedSize, firstText, secondText) => {
       </style>
       <text x="50%" y="${
           fixedSize - 150
-      }" font-family="Century Gothic" font-size="75" fill="white" text-anchor="middle">${firstText}</text>
+      }" font-family="Century Gothic" font-size="65" fill="white" text-anchor="middle">${firstText}</text>
       <text x="50%" y="${
           fixedSize - 40
-      }" font-family="Century Gothic" font-size="75" fill="white" text-anchor="middle">${secondText}</text>
+      }" font-family="Century Gothic" font-size="65" fill="white" text-anchor="middle">${secondText}</text>
     </svg>
   `;
 };
