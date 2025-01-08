@@ -1,11 +1,12 @@
 // src/bot.js
+import dotenv from 'dotenv';
+dotenv.config();
 import { Telegraf } from 'telegraf';
 import { Markup } from 'telegraf';
-import { botID } from './config.js';
 import { startHandler } from './handlers/startHandler.js';
 import { textHandler } from './handlers/textHandler.js';
 import { documentHandler } from './handlers/documentHandler.js';
-
+const botID = process.env.BOT_ID;
 const bot = new Telegraf(botID);
 
 // Храним состояния для каждого пользователя
